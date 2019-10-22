@@ -43,7 +43,7 @@
             }
             else {
                 $_SESSION['isAdmin'] = false;
-                header('Refresh:01; url=user/userProfile.php');
+                header('Refresh:01; url=user/userProfileFrontend.php');
                 exit();
             }
         }
