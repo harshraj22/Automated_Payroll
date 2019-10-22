@@ -33,7 +33,19 @@
         else{
             $_SESSION['user'] = $currentUserName;
             $_SESSION['loggedIn'] = true;
-            echo "Successfully Logged In.<br>";
+            echo "Successfully Logged In. Redirecting to Profile.<br>";
+            $isAdmin = mysqli_fetch_row($user_result)[2];
+            
+            if($isAdmin == "yes"){
+                $_SESSION['isAdmin'] = true;
+                header('Refresh:01; url=admin/adminProfile.php');
+                exit();
+            }
+            else {
+                $_SESSION['isAdmin'] = false;
+                header('Refresh:01; url=user/userProfile.php');
+                exit();
+            }
         }
 
     }
