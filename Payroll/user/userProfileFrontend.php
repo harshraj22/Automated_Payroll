@@ -1,6 +1,5 @@
 <?php
     session_start();
-
 ?>
 
 
@@ -20,7 +19,9 @@
         <input type="text" name='longitude' id='longitude'>
         <button type='submit' id='buttonId' >Submit</button>
     </form>
-    
+    <form action="userLogoutImage.php" type="post" enctype="multipart/form-data">
+        <input type="submit" name="logout" id="logout" value="Logout">
+    </form>
     
 </body>
 </html>
