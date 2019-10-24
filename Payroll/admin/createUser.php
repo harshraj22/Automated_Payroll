@@ -36,6 +36,9 @@
             if(!$create_user_table_result)
                 echo "There was some problem creating table for {$newUserName}.<br>".mysqli_error($conn);
 
+            if(!file_exists("../user_images/{$newUserName}")) {
+                mkdir("../user_images/{$newUserName}",0777,true);
+            }
             echo "Created user {$newUserName}...";
         }
 
