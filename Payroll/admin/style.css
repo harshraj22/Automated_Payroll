@@ -1,0 +1,14 @@
+#userImage{
+	padding: 0;
+	margin-left: 0%;
+	position: relative;
+	width: 150px;
+	height: 150px;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width : 99%;
+  background-color: #007b5e;
+}
