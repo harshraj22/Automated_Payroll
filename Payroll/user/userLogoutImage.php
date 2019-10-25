@@ -15,7 +15,7 @@
 </head>
 <body>
     <div class="container-fluid">
-        <div class="d-flex justify-cintent-center">
+        <div class="d-flex justify-content-center">
             <div class="spinner-border text-primary" role="status">
                 <span class="sr-only">Signing out...</span>
             </div>
