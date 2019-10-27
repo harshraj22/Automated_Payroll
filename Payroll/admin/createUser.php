@@ -30,7 +30,7 @@
 			if(!$create_user_result)
 				echo "Error creating user....!<br>".mysqli_error($conn);
 
-			$create_user_table_query = "CREATE TABLE {$newUserName} (date_ DATE NOT NULL, latitude VARCHAR(30) NOT NULL, longitude VARCHAR(30) NOT NULL, pic VARCHAR(30) DEFAULT NULL)";
+			$create_user_table_query = "CREATE TABLE {$newUserName} (date_ DATE NOT NULL, latitude VARCHAR(30) NOT NULL, longitude VARCHAR(30) NOT NULL, pic VARCHAR(60) DEFAULT NULL)"; 
 			$create_user_table_result = mysqli_query($conn, $create_user_table_query);
 
 			if(!$create_user_table_result)
