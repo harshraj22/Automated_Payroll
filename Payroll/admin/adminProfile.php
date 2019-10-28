@@ -23,6 +23,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
@@ -77,7 +78,7 @@
                     $show_all_emp_result = mysqli_query($conn, $show_all_emp_query);
 
                     $number_of_emp = mysqli_num_rows($show_all_emp_result);
-                    echo "<h5>Number of employees : {$number_of_emp} </h5><br>";
+                    echo "<h5>Number of employees : <span class='counter-count'>{$number_of_emp}</span> </h5><br>";
 
                     echo "<div class='list-group'>";
                     // add <ul> to prettify it
@@ -133,6 +134,19 @@
             </hr>
         </div>  
     </footer>
+    <script>
+        $('.counter-count').each(function () {
+            $(this).prop('Counter',0).animate({
+                Counter: $(this).text()
+            }, {
+                duration: 1000,
+                easing: 'swing',
+                step: function (now) {
+                    $(this).text(Math.ceil(now));
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>
