@@ -19,7 +19,7 @@
     $today = date('Y-m');
     $today = (string)$today.'%';
     
-    $userQuery = "SELECT DISTINCT * FROM {$_SESSION['queriedUser']} WHERE date_ LIKE '{$today}'";
+    $userQuery = "SELECT DISTINCT * FROM {$_SESSION['queriedUser']} WHERE date_ LIKE '{$today}' AND latitude != 'NA'";
     $userResult = mysqli_query($conn, $userQuery);
 
     if(!$userResult)
@@ -93,6 +93,7 @@
                     <th scope="col">Date</th>
                     <th scope="col">Latitude</th>
                     <th scope="col">Longitude</th>
+                    <th scope="col">Map</th>
                 </tr>
             </thead>
             <tbody>
@@ -103,8 +104,11 @@
                             <tr>
                                 <th scope="row">{$i}</th>
                                 <td>{$row[0]}</td>
-                                <td>{$row[1]}</td>
-                                <td>{$row[2]}</td>
+                                <form type="post" action="showMap.php" enctype="multipart/form-data">
+                                    <td><input type="hidden" value="$row[1]" name="lat">{$row[1]}</td>
+                                    <td><input type="hidden" value="$row[2]" name="lng">{$row[2]}</td>
+                                    <td><button type="submit" class="btn btn-primary">Show in Map</button></td>
+                                </form>
                             </tr>
                         _END;
                     }
