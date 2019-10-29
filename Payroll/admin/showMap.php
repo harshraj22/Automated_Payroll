@@ -11,7 +11,7 @@
             padding: 0;
         }
         #map {
-            height: 750px;
+            height: 100vh;
             width: 100%;
         }
     </style>
