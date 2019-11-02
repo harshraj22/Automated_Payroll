@@ -37,7 +37,7 @@
         echo "Connected to databse, creating tables.<br>";
     
     // create auth table which stores username and password for each user, along with info it he/she is admin
-    $table_query = "CREATE TABLE auth (username VARCHAR(20) NOT NULL PRIMARY KEY, pass VARCHAR(20) NOT NULL, isAdmin VARCHAR(3) NOT NULL DEFAULT 'No')";
+    $table_query = "CREATE TABLE auth (username VARCHAR(20) NOT NULL PRIMARY KEY, pass VARCHAR(20) NOT NULL, isAdmin VARCHAR(3) NOT NULL DEFAULT 'No', isHr VARCHAR(3) NOT NULL DEFAULT 'No')";
 
     $table_result = mysqli_query($conn, $table_query);
 
