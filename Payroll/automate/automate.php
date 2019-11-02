@@ -47,7 +47,7 @@
         echo "Successfully created auth table.<br>";
 
     // create an admin auth credentials.
-    $create_admin_query = "INSERT INTO auth VALUES('{$admin_name}', '{$admin_pass}', 'yes')";
+    $create_admin_query = "INSERT INTO auth VALUES('{$admin_name}', '{$admin_pass}', 'yes', 'No')";
     $create_admin_result = mysqli_query($conn, $create_admin_query);
 
 
