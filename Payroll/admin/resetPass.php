@@ -38,7 +38,7 @@
                             <div class="form-group row-md-2">
                                 <input type="hidden" name="user" value="{$currentuser}">
                                 <label for='pass'>New Password: </label>
-                                <input type='password' name='pass' id='pass' class="form-control" placeholder="password">
+                                <input type='password' name='pass' id='pass' class="form-control" placeholder="password" required>
                             </div>
                                 <input type='submit' class="btn btn-primary">
                         </form>
