@@ -27,8 +27,8 @@
 			        <a class="nav-link disabled" href="#">Disabled</a>
 			      </li>
 			    </ul>
-			    <form class="form-inline my-2 my-lg-0" action="https://www.google.com">
-			      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+			    <form method = 'get' class="form-inline my-2 my-lg-0" action="https://www.google.com/search">
+			      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name='q'>
 			      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 			    </form>
 			  </div>
@@ -118,7 +118,7 @@
 			echo "Successfully Logged In. Redirecting to Profile.<br>";
 			$data = mysqli_fetch_row($user_result);
 			$isAdmin = $data[2];
-			print_r($data);
+			// print_r($data);
 			$isHr = $data[3];
 			
 			if($isAdmin == "yes"){
