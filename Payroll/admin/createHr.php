@@ -24,11 +24,11 @@
 			exit();
 		}
 		else{
-			$create_user_query = "INSERT INTO auth VALUES('{$newUserName}','{$newUserPass}','no', 'no')";
+			$create_user_query = "INSERT INTO auth VALUES('{$newUserName}','{$newUserPass}','no','yes')";
 			$create_user_result = mysqli_query($conn, $create_user_query);
 
 			if(!$create_user_result)
-				echo "Error creating user....!<br>".mysqli_error($conn);
+				echo "Error creating Hr....!<br>".mysqli_error($conn);
 
 			$create_user_table_query = "CREATE TABLE {$newUserName} (date_ DATE NOT NULL, latitude VARCHAR(30) NOT NULL, longitude VARCHAR(30) NOT NULL, pic VARCHAR(60) DEFAULT NULL)"; 
 			$create_user_table_result = mysqli_query($conn, $create_user_table_query);
@@ -39,9 +39,7 @@
 			if(!file_exists("../user_images/{$newUserName}")) {
 				mkdir("../user_images/{$newUserName}",0777,true);
 			}
-			echo "Created user {$newUserName}...";
-	        header('Refresh:01; url=adminProfile.php');
-	        exit();
+			echo "Created Hr {$newUserName}...";
 		}
 
 
@@ -67,7 +65,7 @@
 							<p class="blockquote p-3">-Ariana Grande</p>
 						</blockquote>
 					  </div>
-					  <form action="createUser.php" method="POST" class="signupForm" name="signupform">
+					  <form action="createHr.php" method="POST" class="signupForm" name="signupform">
 						<h2>Enter New User Details</h2>
 						<ul class="noBullet">
 						  <li>

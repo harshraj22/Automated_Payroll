@@ -2,7 +2,7 @@
     session_start();
     require_once "../authenticate/login.php";
 
-    if($_SESSION['loggedIn'] == false || $_SESSION['isAdmin'] == false){
+    if($_SESSION['loggedIn'] == false || ($_SESSION['isAdmin'] == false && $_SESSION['isHr'] == false)){
         echo "Error 404. <br> The page you requested does not exists.";
         header('Refresh:01; url=../index.php');
         exit();
@@ -37,7 +37,12 @@
             <a class="nav-link" href="https://github.com/harshraj22/Automated_Payroll">Git <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+            <?php
+                if($_SESSION['loggedIn'] == true)
+                    echo '<a class="nav-link" href="../user/logout.php">Logout</a>';
+                else
+                    echo '<a class="nav-link" href="../index.php">Logout</a>';
+            ?>
           </li>
           <li class="nav-item">
             <a class="nav-link disabled" href="#">Disabled</a>
@@ -55,13 +60,32 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-2 ">
-                <img class="img-fluid" id="userImage" src="https://img.huffingtonpost.com/asset/5bb7247b240000310056f31c.jpeg?ops=scalefit_720_noupscale">
-                </img>
-                <form action="createUser.php">
-                    <div class="row">
-                        <button type="submit" class="btn btn-primary" style="margin: 5px; margin-left:30px">Add User</button>
-                    </div>
-                </form>
+                <?php
+                    if($_SESSION['isAdmin'] == true && $_SESSION['loggedIn'] == true){
+                        echo <<< _END
+                            <img class="img-fluid" id="userImage" src="https://img.huffingtonpost.com/asset/5bb7247b240000310056f31c.jpeg?ops=scalefit_720_noupscale">
+                            </img>
+                            <form action="createUser.php">
+                                <div class="row">
+                                    <button type="submit" class="btn btn-primary" style="margin: 5px; margin-left:30px">Add User</button>
+                                </div>
+                            </form>
+                            <br><hr><br>
+                        _END;
+                    }
+
+                    if($_SESSION['isAdmin'] == true && $_SESSION['loggedIn'] == true){
+                        echo <<< _END
+                            <img class="img-fluid" id="userImage" src="https://img.huffingtonpost.com/asset/5bb7247b240000310056f31c.jpeg?ops=scalefit_720_noupscale">
+                            </img>
+                            <form action="createHr.php">
+                                <div class="row">
+                                    <button type="submit" class="btn btn-primary" style="margin: 5px; margin-left:30px">Add HR</button>
+                                </div>
+                            </form>
+                        _END;
+                    }
+                ?>
             </div>
 
             <div class="col-md-4 ">
@@ -74,7 +98,7 @@
                         exit();
                     }
 
-                    $show_all_emp_query = "SELECT * FROM auth WHERE isAdmin='no'";
+                    $show_all_emp_query = "SELECT * FROM auth WHERE isAdmin='no' AND isHr='no'";
                     $show_all_emp_result = mysqli_query($conn, $show_all_emp_query);
 
                     $number_of_emp = mysqli_num_rows($show_all_emp_result);
