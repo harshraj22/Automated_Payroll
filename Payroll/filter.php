@@ -1,6 +1,13 @@
 <?php
     session_start();
     require_once "authenticate/login.php";
+    if($_SESSION['loggedIn'] == true && ($_SESSION['isAdmin'] == true || $_SESSION['isHr'] == true)){
+        // do nothing
+    }
+    else{
+        echo "<h2> You need to login First </h2>.";
+        header('Refresh:01; url=index.php');
+    }
 ?>
 
 <!DOCTYPE html>
