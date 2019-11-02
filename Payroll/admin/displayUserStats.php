@@ -85,6 +85,12 @@
                     <input type="submit" class="btn btn-primary" value="Calc Salary" >
                 </form>
             </div>
+            <div class="col float-right p-3">
+                <form method="POST" action="resetPass.php">
+                `   <input type="hidden" name="user" value="<?php echo $_GET['user']; ?>">
+                    <input type="submit" class="btn btn-primary" value="Reset Password" >
+                </form>
+            </div>
         </div>
         <table class="table">
             <thead>
