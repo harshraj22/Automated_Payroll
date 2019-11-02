@@ -1,7 +1,11 @@
 <?php
 
     session_start();
-
+    if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] == false){
+        echo "Error 404. The page you requested doesn't exists. ".isset($_SESSION['loggedIn'])." and {$_SESSION['loggedIn']}";
+        header("Refresh:02; url=../index.php");
+        exit();
+    }
 ?>
 
 <!DOCTYPE html>
