@@ -4,7 +4,7 @@
 
 	// If this page was requested for first time, username and password in html form won't be set
 	if(!isset($_POST['username']) || !isset($_POST['pass'])){
-		session_destroy();
+		// session_destroy();
 		echo <<< _END
 			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 			<link rel="stylesheet" href="index.css">
