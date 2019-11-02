@@ -6,6 +6,6 @@
 
 	echo "Logged out successfully.<br>";
 
-    header('Refresh:01; url=../index.html');
+    header('Refresh:01; url=../index.php');
 
 ?>
