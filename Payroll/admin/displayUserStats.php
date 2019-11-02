@@ -3,7 +3,7 @@
     require_once "../authenticate/login.php";
     $_SESSION['queriedUser'] = $_GET['user'];
 
-    if(!isset($_SESSION['queriedUser']) || !isset($_SESSION['isAdmin']) || $_SESSION['isAdmin'] == false){
+    if(!isset($_SESSION['queriedUser']) || (!isset($_SESSION['isAdmin']) && !isset($_SESSION['isHr'])) || ($_SESSION['isAdmin'] == false &&  $_SESSION['isHr'] == false)){
         die("Error 404 <br> The page you requested doesn't exist.");
         header('Refresh:01; url=../index.php');
         exit();
@@ -61,7 +61,7 @@
             <a class="nav-link" href="https://github.com/harshraj22/Automated_Payroll">Git <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+            <a class="nav-link" href="../user/logout.php">Logout</a>
           </li>
           <li class="nav-item">
             <a class="nav-link disabled" href="#">Disabled</a>
@@ -85,12 +85,19 @@
                     <input type="submit" class="btn btn-primary" value="Calc Salary" >
                 </form>
             </div>
-            <div class="col float-right p-3">
-                <form method="POST" action="resetPass.php">
-                `   <input type="hidden" name="user" value="<?php echo $_GET['user']; ?>">
-                    <input type="submit" class="btn btn-primary" value="Reset Password" >
-                </form>
-            </div>
+            <?php
+                $user = $_GET['user'];
+                if ($_SESSION['isAdmin'] == true && $_SESSION['loggedIn'] == true) {
+                    echo <<< _END
+                        <div class="col float-right p-3">
+                            <form method="POST" action="resetPass.php">
+                                <input type="hidden" name="user" value="{$user}">
+                                <input type="submit" class="btn btn-primary" value="Reset Password" >
+                            </form>
+                        </div>
+                    _END;
+                }
+            ?>
         </div>
         <table class="table">
             <thead>
