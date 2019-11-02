@@ -40,9 +40,9 @@
 					<div class="col-md-2">
 						<form method='POST' action='' enctype='multipart/form-data'>
 							<div class="form-group row-md-2">    
-								Username: <input type='text' name='username' class="form-control" placeholder="username">
+								Username: <input type='text' name='username' class="form-control" placeholder="username" required>
 								<br>
-								Password: <input type='password' name='pass' class="form-control" placeholder="password">
+								Password: <input type='password' name='pass' class="form-control" placeholder="password" required>
 							</div>
 								<input type='submit' class="btn btn-primary">
 						</form>
