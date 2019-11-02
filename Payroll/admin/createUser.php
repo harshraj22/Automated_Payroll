@@ -24,7 +24,7 @@
 			exit();
 		}
 		else{
-			$create_user_query = "INSERT INTO auth VALUES('{$newUserName}','{$newUserPass}','no')";
+			$create_user_query = "INSERT INTO auth VALUES('{$newUserName}','{$newUserPass}','no', 'no')";
 			$create_user_result = mysqli_query($conn, $create_user_query);
 
 			if(!$create_user_result)
@@ -40,6 +40,8 @@
 				mkdir("../user_images/{$newUserName}",0777,true);
 			}
 			echo "Created user {$newUserName}...";
+	        header('Refresh:01; url=adminProfile.php');
+	        exit();
 		}
 
 

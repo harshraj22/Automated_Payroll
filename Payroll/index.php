@@ -34,6 +34,7 @@
 			  </div>
 			</nav>
 
+			<!-- =====================input form================== -->
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-md-2">
@@ -112,16 +113,27 @@
 		else{
 			$_SESSION['user'] = $currentUserName;
 			$_SESSION['loggedIn'] = true;
+			$_SESSION['isAdmin'] = false;
+			$_SESSION['isHr'] = false;
 			echo "Successfully Logged In. Redirecting to Profile.<br>";
-			$isAdmin = mysqli_fetch_row($user_result)[2];
+			$data = mysqli_fetch_row($user_result);
+			$isAdmin = $data[2];
+			print_r($data);
+			$isHr = $data[3];
 			
 			if($isAdmin == "yes"){
 				$_SESSION['isAdmin'] = true;
 				header('Refresh:01; url=admin/adminProfile.php');
 				exit();
 			}
+			else if($isHr == "yes"){
+				$_SESSION['isHr'] = true;
+				header('Refresh:01; url=admin/adminProfile.php');
+				exit();
+			}
 			else {
 				$_SESSION['isAdmin'] = false;
+				$_SESSION['isHr'] = false;
 				header('Refresh:01; url=user/userLoginImage.php');
 				exit();
 			}

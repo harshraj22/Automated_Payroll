@@ -39,7 +39,12 @@
                     <a class="nav-link" href="https://github.com/harshraj22/Automated_Payroll">Git <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                    <?php
+                        if($_SESSION['loggedIn'] == true)
+                            echo '<a class="nav-link" href="user/logout.php">Logout</a>';
+                        else
+                            echo '<a class="nav-link" href="index.php">Logout</a>';
+                    ?>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link disabled" href="#">Disabled</a>
