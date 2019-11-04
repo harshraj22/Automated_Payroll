@@ -107,6 +107,7 @@
                     <th scope="col">Latitude</th>
                     <th scope="col">Longitude</th>
                     <th scope="col">Map</th>
+                    <th scope="col">Image</th>
                 </tr>
             </thead>
             <tbody>
@@ -121,6 +122,11 @@
                                     <td><input type="hidden" value="$row[1]" name="lat">{$row[1]}</td>
                                     <td><input type="hidden" value="$row[2]" name="lng">{$row[2]}</td>
                                     <td><button type="submit" class="btn btn-primary">Show in Map</button></td>
+                                </form>
+                                <form type="post" action="showImage.php" enctype="multipart/form-data">
+                                    <input type="hidden" value="{$row[0]}" name="date">
+                                    <input type="hidden" value="{$_GET['user']}" name="emp">
+                                    <td><button type="submit" class="btn btn-primary">Show Images</button></td>
                                 </form>
                             </tr>
                         _END;
