@@ -47,7 +47,7 @@
                     ?>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Disabled</a>
+                    <a class="nav-link" href="admin/adminProfile.php">Profile</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0" action="filter.php">
@@ -58,20 +58,82 @@
     </nav>
 
     <?php
-
-        if(isset($_POST['queriedUser']) && !empty($_POST['queriedUser']))
-            header("Location: admin/displayUserStats.php?user={$_POST['queriedUser']}");
-        else if(isset($_POST['queriedDate']) && !empty($_POST['queriedDate'])){
-            echo "Try to query date<br>";
+        $conn = mysqli_connect($hostname, $username, $password, $database);
+        if(!$conn){
+            die("Error connecting to server. Please try after sometime.".mysqli_connect_error());
+            header('url=filter.php');
+            exit();
         }
         else{
             echo <<< _END
                 <form action="filter.php" method="POST" >
                     <input type="text" name="queriedUser">
                     <input type="date" name="queriedDate">
-                    <input type="submit" name="submit">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="submit">Search</button>
                 </form>
             _END;
+
+            if(isset($_POST['queriedUser']) && isset($_POST['queriedDate']) && !empty($_POST['queriedDate']) && !empty($_POST['queriedUser'])){
+                $show_all_emp_query = "SELECT username FROM auth WHERE isAdmin='no' AND isHr='no' AND username='{$_POST['queriedUser']}'";
+                $show_all_emp_result = mysqli_query($conn, $show_all_emp_query);
+
+                $number_of_emp = mysqli_num_rows($show_all_emp_result);
+                echo "<div class='col-md-4'>";
+                echo "<h5>Date: <span class='counter-count'>{$_POST['queriedDate']}</span></h5><br>";
+
+                echo "<div class='list-group'>";
+                // add <ul> to prettify it
+                $cur_emp_details = mysqli_fetch_row($show_all_emp_result);
+                $present_or_not = "SELECT * FROM {$cur_emp_details[0]} WHERE date_='{$_POST['queriedDate']}'";
+                $result = mysqli_query($conn, $present_or_not);
+                $number = mysqli_num_rows($result);
+                // $_SESSION['queriedUser'] = $cur_emp_details;
+                if($number > 0)
+                    echo "<a class='list-group-item list-group-item-action' href='admin/displayUserStats.php?user={$cur_emp_details[0]}' >{$cur_emp_details[0]}</a><br> ";
+                else echo "<h6> {$cur_emp_details[0]} was not present that day </h6><br>";
+
+                echo "</div></div>";
+            }
+            else if(isset($_POST['queriedDate']) && !empty($_POST['queriedDate'])){
+                $select_user_tables = "SELECT username FROM auth WHERE isAdmin='no' AND isHr='no'";
+                $selected_user_tables = mysqli_query($conn, $select_user_tables);
+
+                $number_of_emps = mysqli_num_rows($selected_user_tables);
+                echo "<div class='col-md-4'>";
+                echo "<h5>Date: <span class='counter-count'>{$_POST['queriedDate']}</span></h5><br>";
+
+                echo "<div class='list-group'>";
+
+                for($i=0; $i<$number_of_emps; $i++) {
+                    $curr_emp = mysqli_fetch_row($selected_user_tables);
+                    $present_emp = "SELECT * FROM {$curr_emp[0]} WHERE date_='{$_POST['queriedDate']}'";
+                    $result_emp = mysqli_query($conn, $present_emp);
+                    $present_or_not = mysqli_num_rows($result_emp);
+                    if($present_or_not > 0){
+                        echo "<a class='list-group-item list-group-item-action' href='admin/displayUserStats.php?user={$curr_emp[0]}' >{$curr_emp[0]}</a><br> ";
+                    }
+                }
+
+                echo "</div></div>";
+            }
+            else if(isset($_POST['queriedUser']) && isset($_POST['queriedDate'])) {
+                $show_all_emp_query = "SELECT * FROM auth WHERE isAdmin='no' AND isHr='no' AND username LIKE '%{$_POST['queriedUser']}%'";
+                $show_all_emp_result = mysqli_query($conn, $show_all_emp_query);
+
+                $number_of_emp = mysqli_num_rows($show_all_emp_result);
+                echo "<div class='col-md-4'>";
+                echo "<h5>Number of employees : <span class='counter-count'>{$number_of_emp}</span> </h5><br>";
+
+                echo "<div class='list-group'>";
+                // add <ul> to prettify it
+                for($i=0;$i<$number_of_emp;$i+=1){
+                    $cur_emp_details = mysqli_fetch_row($show_all_emp_result);
+                    // $_SESSION['queriedUser'] = $cur_emp_details;
+                    echo "<a class='list-group-item list-group-item-action' href='admin/displayUserStats.php?user={$cur_emp_details[0]}' >{$cur_emp_details[0]}</a><br> ";
+                }
+
+                echo "</div></div>";
+            }
         }
     ?>
 
