@@ -70,7 +70,7 @@
 						<a class="nav-link" href="../user/logout.php">Logout</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link disabled" href="#">Disabled</a>
+						
 					</li>
 					</ul>
 					<form class="form-inline my-2 my-lg-0" action="https://www.google.com">
