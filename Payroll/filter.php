@@ -66,11 +66,24 @@
         }
         else{
             echo <<< _END
-                <form action="filter.php" method="POST" >
-                    <input type="text" name="queriedUser">
-                    <input type="date" name="queriedDate">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="submit">Search</button>
-                </form>
+            <div class='row m-y-8 p-10'>
+                <div class='col-md-4'>
+                </div>
+                <div class='col-md-2'
+                    <form action="filter.php" method="POST" >
+                        <div class='form-group'>
+                            <label for='queryUser' class='font-weight-normal'>User Name</label>
+                            <input type="text" name="queriedUser" id='queryUser' class='form-control'>
+                        </div>
+                        <div class='form-group'>
+                            <label for='queryDate'>Date</label>
+                            <input type="date" name="queriedDate" id='queryDate' class='form-control'>
+                        </div>
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+
 _END;
 
             if(isset($_POST['queriedUser']) && isset($_POST['queriedDate']) && !empty($_POST['queriedDate']) && !empty($_POST['queriedUser'])){
