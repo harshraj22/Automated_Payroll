@@ -38,7 +38,7 @@
 		$user_query = "SELECT COUNT(*) FROM  {$user} WHERE date_ LIKE '{$today}' AND latitude!='NA' AND ABS(latitude-{$pref_latitude}) < 0.1 AND ABS(longitude - {$pref_longitude}) < 0.1";
 		$user_res = mysqli_query($conn, $user_query);
 
-		$user_salary = mysqli_num_rows($user_res)*$rate;
+		$user_salary = mysqli_fetch_row($user_res)[0]*$rate;
 
 		// echo $user."__________".$user_salary."<br>";
 
