@@ -111,6 +111,13 @@ _END;
 _END;
                     }
                 ?>
+                <hr>
+                <form action="calcAllSalary.php">
+                    <div class="row">
+                        <div style="margin-left: 10px;">All Employees Salary:</div>
+                        <button type="submit" class="btn btn-primary" style="margin: 5px; margin-left:30px">Dowload</button>
+                    </div>
+                </form>
             </div>
 
             <div class="col-md-4 ">
