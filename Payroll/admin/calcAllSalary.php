@@ -36,7 +36,7 @@
 
 		// echo $user."__________".$user_salary."<br>";
 
-		fwrite($txt, $user."  :  ".$user_salary);
+		fwrite($txt, $user."  :  ".$user_salary.PHP_EOL);
 	}
 
 
