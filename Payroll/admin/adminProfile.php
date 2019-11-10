@@ -68,7 +68,7 @@
                 <?php
                     if($_SESSION['isAdmin'] == true && $_SESSION['loggedIn'] == true){
                         echo <<< _END
-                            <img class="img-fluid" id="userImage" src="https://img.huffingtonpost.com/asset/5bb7247b240000310056f31c.jpeg?ops=scalefit_720_noupscale">
+                            <img class="img-fluid" id="userImage" src="../images/emp.jpg">
                             </img>
                             <form action="createUser.php">
                                 <div class="row">
@@ -81,7 +81,7 @@ _END;
 
                     if($_SESSION['isAdmin'] == true && $_SESSION['loggedIn'] == true){
                         echo <<< _END
-                            <img class="img-fluid" id="userImage" src="https://img.huffingtonpost.com/asset/5bb7247b240000310056f31c.jpeg?ops=scalefit_720_noupscale">
+                            <img class="img-fluid" id="userImage" src="../images/ceo.jpg">
                             </img>
                             <form action="createHr.php">
                                 <div class="row">
@@ -158,13 +158,13 @@ _END;
                   </ol>
                   <div class="carousel-inner">
                     <div class="carousel-item active">
-                      <img class="img-fluid d-block w-100" src="https://img.huffingtonpost.com/asset/5bb7247b240000310056f31c.jpeg?ops=scalefit_720_noupscale" alt="First slide" style="max-width:100%; height: 550px;">
+                      <img class="img-fluid d-block w-100" src="../images/employment.png" alt="First slide" style="max-width:100%; height: 550px;">
                     </div>
                     <div class="carousel-item">
-                      <img class="img-fluid d-block w-100" src="../images/image2.jpg" alt="Second slide" style="max-width:100%; height: 550px;">
+                      <img class="img-fluid d-block w-100" src="../images/meeting.jpg" alt="Second slide" style="max-width:100%; height: 550px;">
                     </div>
                     <div class="carousel-item">
-                      <img class="img-fluid d-block w-100" src="../images/image3.jpg" alt="Third slide" style="max-width:100%; height: 550px;">
+                      <img class="img-fluid d-block w-100" src="../images/hr.jpg" alt="Third slide" style="max-width:100%; height: 550px;">
                     </div>
                   </div>
                   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
