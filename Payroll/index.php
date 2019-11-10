@@ -27,7 +27,7 @@
 			        
 			      </li>
 			    </ul>
-			    <form method = 'get' class="form-inline my-2 my-lg-0" action="https://www.google.com/search">
+			    <form method = 'get' class="form-inline my-2 my-lg-0" action="https://www.google.com/search" target="_blank">
 			      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name='q'>
 			      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 			    </form>
