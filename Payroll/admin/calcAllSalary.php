@@ -2,6 +2,9 @@
 	session_start();
 	require_once '../authenticate/login.php';
 
+	$pref_longitude = 74.92356459999999;
+	$pref_latitude = 15.5251559;
+
 	$conn = mysqli_connect($hostname, $username, $password, $database);
 	if(!$conn){
 		die("Error connecting to server. Please try after sometime.".mysqli_connect_error());
@@ -26,10 +29,13 @@
 	$file = "EmpSalary.txt";
 	$txt = fopen($file, "w") or die("Unable to open file!");
 
+	$today = date('Y-m');
+	$today = (string)$today.'%';
+
 	for($i=0;$i<$extract_user_num;$i++){
 		$user = mysqli_fetch_row($extract_user_res)[0];
 
-		$user_query = "SELECT COUNT(*) FROM {$user}";
+		$user_query = "SELECT COUNT(*) FROM  {$user} WHERE date_ LIKE '{$today}' AND latitude!='NA' AND ABS(latitude-{$pref_latitude}) < 0.1 AND ABS(longitude - {$pref_longitude}) < 0.1";
 		$user_res = mysqli_query($conn, $user_query);
 
 		$user_salary = mysqli_num_rows($user_res)*$rate;
