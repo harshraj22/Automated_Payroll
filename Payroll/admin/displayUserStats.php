@@ -157,7 +157,16 @@ _END;
             itemNamespace: "cal-heatmap"
         });
     </script>
-
+        <link rel="stylesheet" href="../index.css">
+        <footer>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+                    <p><u><a href="https://github.com/harshraj22/Automated_Payroll">Automated Payroll</a></u> is a Registered Website of IIT Dh, Inc. India 
+                    <p class="h6">&copy All right Reversed.<a class="text-green ml-2" href="https://github.com/harshraj22/Automated_Payroll" target="_blank">Team 5</a></p>
+                </div>
+                </hr>
+            </div>  
+        </footer>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
