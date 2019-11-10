@@ -25,14 +25,19 @@
 	if(!isset($_SESSION['isHr']) || $_SESSION['isHr'] == true){
 		$query_for_rate = "SELECT rate FROM hr_table WHERE username='{$_SESSION['user']}'";
 		$result_for_rate = mysqli_query($conn, $query_for_rate);
-		
+
 		$cur_row = mysqli_fetch_row($result_for_rate);
 		$salary_per_hour = (int)($cur_row[0]);
+		
+		// echo $salary_per_hour.' inside <br>'.$query_for_rate."<br>";
+		// print_r($cur_row);
+
 	}
 	else 
 		$salary_per_hour = 10;
 					
 	// echo $salary_per_hour.'<br>';
+
 	$today = date('Y-m');
 	$today = (string)$today.'%';
 	if(isset($_GET['date']))
@@ -40,6 +45,7 @@
 	
 	$userQuery = "SELECT COUNT(*) FROM {$_POST['user']} WHERE date_ LIKE '{$today}' AND latitude!='NA' AND ABS(latitude-{$pref_latitude}) < 0.1 AND ABS(longitude - {$pref_longitude}) < 0.1";
 	$userResult = mysqli_query($conn, $userQuery);
+
 	// echo $userQuery." ".$salary_per_hour.'<br>';
 
 	if(!$userResult)
