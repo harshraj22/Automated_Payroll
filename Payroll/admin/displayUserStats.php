@@ -86,7 +86,7 @@
             <h3 class="col-8 p-3 text-center">The details for <?php echo $_GET['user']; ?> are : <br></h3>    
             <div class="col float-right p-3">
                 <!-- <button type="submit" action="calcSalary.php?user=<?php echo $_GET['user']; ?>" class="btn btn-primary" value="Calc Salary">  -->
-                <form method="POST" action="calcSalary.php">
+                <form method="POST" action="calcSalary.php?date=<?php echo $today; ?>">
                     <input type="hidden" name="user" value="<?php echo $_GET['user']; ?>">
                     <input type="submit" class="btn btn-primary" value="Calc Salary" >
                 </form>
