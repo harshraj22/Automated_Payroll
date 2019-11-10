@@ -91,7 +91,7 @@
                 <!-- <button type="submit" action="calcSalary.php?user=<?php echo $_GET['user']; ?>" class="btn btn-primary" value="Calc Salary">  -->
                 <form method="POST" action="calcSalary.php?date=<?php echo $today; ?>">
                     <input type="hidden" name="user" value="<?php echo $_GET['user']; ?>">
-                    <input type="submit" class="btn btn-primary" value="Calc Salary" >
+                    <input type="submit" class="btn btn-primary" value="Calculate Salary" >
                 </form>
             </div>
             <?php
