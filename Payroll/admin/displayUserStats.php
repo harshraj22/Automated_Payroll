@@ -9,14 +9,18 @@
         exit();
     }
     $conn = mysqli_connect($hostname, $username, $password, $database);
-        if(!$conn){
-            die("Error connecting to server. Please try after sometime.".mysqli_connect_error());
+    if(!$conn){
+        die("Error connecting to server. Please try after sometime.".mysqli_connect_error());
         header('url=../index.php');
         exit();
     }
-                    
-                    
-    $today = date('Y-m');
+    $today = 0;             
+    if(isset($_GET['date'])){
+        $today = $_GET['date'];
+        $today = substr($today,0,-3);
+    }
+    else 
+        $today = date('Y-m');
     $today = (string)$today.'%';
     
     $userQuery = "SELECT DISTINCT * FROM {$_SESSION['queriedUser']} WHERE date_ LIKE '{$today}' AND latitude != 'NA'";
@@ -26,7 +30,7 @@
         die("Error fetching user deatils<br>".mysqli_error($conn));
     $number_of_rows = mysqli_num_rows($userResult);
 
-    mysqli_connect($conn);
+    mysqli_close($conn);
 
 ?>
 
