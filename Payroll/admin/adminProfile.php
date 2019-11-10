@@ -71,7 +71,7 @@
                                 </div>
                             </form>
                             <br><hr><br>
-                        _END;
+_END;
                     }
 
                     if($_SESSION['isAdmin'] == true && $_SESSION['loggedIn'] == true){
@@ -83,7 +83,7 @@
                                     <button type="submit" class="btn btn-primary" style="margin: 5px; margin-left:30px">Add HR</button>
                                 </div>
                             </form>
-                        _END;
+_END;
                     }
                 ?>
             </div>

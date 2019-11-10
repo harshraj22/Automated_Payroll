@@ -95,7 +95,7 @@
                                 <input type="submit" class="btn btn-primary" value="Reset Password" >
                             </form>
                         </div>
-                    _END;
+_END;
                 }
             ?>
         </div>
@@ -129,7 +129,7 @@
                                     <td><button type="submit" class="btn btn-primary">Show Images</button></td>
                                 </form>
                             </tr>
-                        _END;
+_END;
                     }
                 ?>
             </tbody>

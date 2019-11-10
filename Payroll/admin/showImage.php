@@ -80,7 +80,7 @@
                                 $row = mysqli_fetch_row($result);
                                 echo <<< _END
                                     <th><img src='{$row[3]}'></img></th>
-                                _END;
+_END;
                             }
                         ?>
                     </tr>
