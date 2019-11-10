@@ -39,6 +39,7 @@
 			echo "Created Hr {$newUserName}...";
 		}
 
+		mysqli_connect($conn);
 
 		// echo "Creating table<br>";
 	}

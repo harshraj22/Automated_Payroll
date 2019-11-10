@@ -69,6 +69,8 @@ _END;
             echo "Successfully updated password."; 
             header('Refresh:01; url=adminProfile.php');
         }
+
+        mysqli_connect($conn);
     }
 
 

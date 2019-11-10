@@ -26,6 +26,8 @@
         die("Error fetching user deatils<br>".mysqli_error($conn));
     $number_of_rows = mysqli_num_rows($userResult);
 
+    mysqli_connect($conn);
+
 ?>
 
 <!DOCTYPE html>

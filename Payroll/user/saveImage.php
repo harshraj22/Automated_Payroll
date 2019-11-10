@@ -1,7 +1,6 @@
 <?php
     session_start();
-?>
-<?php
+
     require_once "../authenticate/login.php";
 
     $conn = mysqli_connect($hostname, $username, $password, $database);
@@ -36,5 +35,7 @@
         $result = mysqli_query($conn, $insert_image_query);
         file_put_contents($fileName, $fileData);
     }
+
+    mysqli_connect($conn);
     
 ?>

@@ -17,6 +17,8 @@
         die("Error fetching user images<br>".mysqli_error($conn));
     }
     $number_of_rows = mysqli_num_rows($result);
+
+    mysqli_connect($conn);
 ?>
 
     <!DOCTYPE html>

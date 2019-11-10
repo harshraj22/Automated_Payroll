@@ -44,7 +44,7 @@
 	        exit();
 		}
 
-
+		mysqli_connect($conn);
 		// echo "Creating table<br>";
 	}
 	else{
