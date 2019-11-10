@@ -3,6 +3,10 @@
 	require_once "../authenticate/login.php";
 
 	// print_r($_POST);
+
+	$pref_longitude = 74.92356459999999;
+	$pref_latitude = 15.5251559;
+
 	$salary_per_hour = 10;
 
 	$conn = mysqli_connect($hostname, $username, $password, $database);
@@ -22,16 +26,13 @@
 	$result_for_rate = mysqli_query($conn, $query_for_rate);
 
 	$cur_row = mysqli_fetch_row($result_for_rate);
-	// print_r($cur_row);
 	$salary_per_hour = (int)($cur_row[0]);
-	// echo $query_for_rate.$salary_per_hour." is so//.<br>";					
 					
 	$today = date('Y-m');
 	$today = (string)$today.'%';
 	
-	$userQuery = "SELECT COUNT(*) FROM {$_POST['user']} WHERE date_ LIKE '{$today}'";
+	$userQuery = "SELECT COUNT(*) FROM {$_POST['user']} WHERE date_ LIKE '{$today}' AND latitude!='NA' AND ABS(latitude-{$pref_latitude}) < 0.1 AND ABS(longitude - {$pref_longitude}) < 0.1";
 	$userResult = mysqli_query($conn, $userQuery);
-	// echo $userQuery;
 
 	if(!$userResult)
 		die("Error fetching user deatils<br>".mysqli_error($conn));
