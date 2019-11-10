@@ -5,6 +5,11 @@
 	// If this page was requested for first time, username and password in html form won't be set
 	if(!isset($_POST['username']) || !isset($_POST['pass'])){
 		// session_destroy();
+		$link = 0;
+		if(isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true)
+			$link = 'loggedIn';
+		else
+			$link = 'logedOut';
 		echo <<< _END
 			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 			<link rel="stylesheet" href="index.css">
@@ -21,7 +26,7 @@
 			        <a class="nav-link" href="https://github.com/harshraj22/Automated_Payroll">Git <span class="sr-only">(current)</span></a>
 			      </li>
 			      <li class="nav-item">
-			        <a class="nav-link" href="#">Link</a>
+			        <a class="nav-link" href="#">{$link}</a>
 			      </li>
 			      <li class="nav-item">
 			        
