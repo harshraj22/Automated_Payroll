@@ -105,10 +105,16 @@ _END;
 		$user_query = "SELECT * FROM auth WHERE username='{$currentUserName}' AND pass='{$currentUserPass}'";
 		$user_result = mysqli_query($conn, $user_query);
 
-		if(!$user_result)
+		if(!$user_result){
 			die("Error matching credentials. Please try later.<br>".mysqli_error($conn));
+			header('Refresh:01; url="index.php"');
+	        mysqli_close($conn);
+
+		}
 		else if(mysqli_num_rows($user_result) == 0){
 			echo "Username and password doesn't match.<br>";
+			header('Refresh:01; url="index.php"');
+	        mysqli_close($conn);
 		}
 		else{
 			$_SESSION['user'] = $currentUserName;
