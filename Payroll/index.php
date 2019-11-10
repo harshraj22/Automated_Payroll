@@ -80,15 +80,15 @@
 				</div>
 			</div>
 
-			<footer>
-				<div class="row">
-					<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
-						<p><u><a href="https://github.com/harshraj22/Automated_Payroll">Automated Payroll</a></u> is a Registered Website of IIT Dh, Inc. India 
-						<p class="h6">&copy All right Reversed.<a class="text-green ml-2" href="https://github.com/harshraj22/Automated_Payroll" target="_blank">Team 5</a></p>
-					</div>
-					</hr>
-				</div>	
-			</footer>
+		    <footer>
+		        <div class="row">
+		            <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+		                <p><u><a href="https://github.com/harshraj22/Automated_Payroll" style="color:black;">Automated Payroll </a></u> is a Registered Website of IIT Dh, Inc. India 
+		                <p class="h6">&copy All right Reversed.<a class="text-green ml-2" href="https://github.com/harshraj22/Automated_Payroll" target="_blank" style="color:black;">Team 5</a></p>
+		            </div>
+		            </hr>
+		        </div>  
+		    </footer>
 
 
 _END;
