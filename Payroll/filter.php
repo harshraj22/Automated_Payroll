@@ -66,23 +66,23 @@
         }
         else{
             echo <<< _END
-            <div class='row m-y-8 p-10'>
-                <div class='col-md-4'>
-                </div>
-                <div class='col-md-2'
+            
+                <div class="d-flex justify-content-center">
                     <form action="filter.php" method="POST" >
                         <div class='form-group'>
-                            <label for='queryUser' class='font-weight-normal'>User Name</label>
-                            <input type="text" name="queriedUser" id='queryUser' class='form-control'>
+                            <label for='queryUser' style='display: block; text-align: center;'>User Name</label>
+                            <input type="text" name="queriedUser" id='queryUser' class='form-control border-primary'>
                         </div>
                         <div class='form-group'>
-                            <label for='queryDate'>Date</label>
-                            <input type="date" name="queriedDate" id='queryDate' class='form-control'>
+                            <label for='queryDate' style='display: block; text-align: center;'>Date</label>
+                            <input type="date" name="queriedDate" id='queryDate' class='form-control border-primary'>
                         </div>
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="submit">Search</button>
+                        <div class="col text-center">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="submit">Search</button>
+                        </div>
                     </form>
                 </div>
-            </div>
+                
 
 _END;
 
@@ -91,8 +91,8 @@ _END;
                 $show_all_emp_result = mysqli_query($conn, $show_all_emp_query);
 
                 $number_of_emp = mysqli_num_rows($show_all_emp_result);
-                echo "<div class='col-md-4'>";
-                echo "<h5>Date: <span class='counter-count'>{$_POST['queriedDate']}</span></h5><br>";
+                echo "<div class='d-flex justify-content-center'><div class='col-md-4'>";
+                echo "<h5 style='text-align: center; margin-top: 50px;'>Date: <span class='counter-count'>{$_POST['queriedDate']}</span></h5><br>";
 
                 echo "<div class='list-group'>";
                 // add <ul> to prettify it
@@ -105,18 +105,18 @@ _END;
                 if($number_of_emp==0)
                     echo "<h6> No employee exists with name {$_POST['queriedUser']}";
                 else if($number > 0)
-                    echo "<a class='list-group-item list-group-item-action' href='admin/displayUserStats.php?user={$cur_emp_details[0]}&date={$_POST['queriedDate']}' >{$cur_emp_details[0]}</a><br> ";
+                    echo "<a class='list-group-item list-group-item-action border-primary' href='admin/displayUserStats.php?user={$cur_emp_details[0]}&date={$_POST['queriedDate']}' >{$cur_emp_details[0]}</a><br> ";
                 else echo "<h6> {$cur_emp_details[0]} was not present that day </h6><br>";
 
-                echo "</div></div>";
+                echo "</div></div></div>";
             }
             else if(isset($_POST['queriedDate']) && !empty($_POST['queriedDate'])){
                 $select_user_tables = "SELECT username FROM auth WHERE isAdmin='no' AND isHr='no'";
                 $selected_user_tables = mysqli_query($conn, $select_user_tables);
 
                 $number_of_emps = mysqli_num_rows($selected_user_tables);
-                echo "<div class='col-md-4'>";
-                echo "<h5>Date: <span class='counter-count'>{$_POST['queriedDate']}</span></h5><br>";
+                echo "<div class='d-flex justify-content-center'><div class='col-md-4'>";
+                echo "<h5 style='text-align: center; margin-top: 50px;'>Date: <span class='counter-count'>{$_POST['queriedDate']}</span></h5><br>";
 
                 echo "<div class='list-group'>";
 
@@ -130,15 +130,15 @@ _END;
                     }
                 }
 
-                echo "</div></div>";
+                echo "</div></div></div>";
             }
             else if(isset($_POST['queriedUser']) && isset($_POST['queriedDate'])) {
                 $show_all_emp_query = "SELECT * FROM auth WHERE isAdmin='no' AND isHr='no' AND username LIKE '%{$_POST['queriedUser']}%'";
                 $show_all_emp_result = mysqli_query($conn, $show_all_emp_query);
 
                 $number_of_emp = mysqli_num_rows($show_all_emp_result);
-                echo "<div class='col-md-4'>";
-                echo "<h5>Number of employees : <span class='counter-count'>{$number_of_emp}</span> </h5><br>";
+                echo "<div class='d-flex justify-content-center'><div class='col-md-4'>";
+                echo "<h5 style='text-align: center; margin-top: 50px;'>Number of employees : <span class='counter-count'>{$number_of_emp}</span> </h5><br>";
 
                 echo "<div class='list-group'>";
                 // add <ul> to prettify it
@@ -148,7 +148,7 @@ _END;
                     echo "<a class='list-group-item list-group-item-action' href='admin/displayUserStats.php?user={$cur_emp_details[0]}' >{$cur_emp_details[0]}</a><br> ";
                 }
 
-                echo "</div></div>";
+                echo "</div></div></div>";
             }
         }
         mysqli_close($conn);
