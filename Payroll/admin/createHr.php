@@ -30,15 +30,12 @@
 			if(!$create_user_result)
 				echo "Error creating Hr....!<br>".mysqli_error($conn);
 
-			$create_user_table_query = "CREATE TABLE {$newUserName} (date_ DATE NOT NULL, latitude VARCHAR(30) NOT NULL, longitude VARCHAR(30) NOT NULL, pic VARCHAR(60) DEFAULT NULL)"; 
-			$create_user_table_result = mysqli_query($conn, $create_user_table_query);
+			$insert_table_query = "INSERT INTO hr_table VALUE('{$newUserName}',10)"; 
+			$insert_table_result = mysqli_query($conn, $insert_table_query);
 
-			if(!$create_user_table_result)
-				echo "There was some problem creating table for {$newUserName}.<br>".mysqli_error($conn);
+			if(!$insert_table_result)
+				echo "There was some problem inserting into table for {$newUserName}.<br>".mysqli_error($conn);
 
-			if(!file_exists("../user_images/{$newUserName}")) {
-				mkdir("../user_images/{$newUserName}",0777,true);
-			}
 			echo "Created Hr {$newUserName}...";
 		}
 
