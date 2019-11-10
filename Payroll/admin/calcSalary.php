@@ -37,6 +37,8 @@
 		die("Error fetching user deatils<br>".mysqli_error($conn));
 	$row = mysqli_fetch_row($userResult);
 
+	mysqli_connect($conn);
+
 ?>
 
 <!doctype html>
