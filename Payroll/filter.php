@@ -71,7 +71,7 @@
                     <input type="date" name="queriedDate">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="submit">Search</button>
                 </form>
-            _END;
+_END;
 
             if(isset($_POST['queriedUser']) && isset($_POST['queriedDate']) && !empty($_POST['queriedDate']) && !empty($_POST['queriedUser'])){
                 $show_all_emp_query = "SELECT username FROM auth WHERE isAdmin='no' AND isHr='no' AND username='{$_POST['queriedUser']}'";
