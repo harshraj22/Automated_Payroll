@@ -61,7 +61,7 @@
 					$salary = (int)$row[0]*$salary_per_hour;
 					echo <<< _END
 						<span class="counter-count">$salary</span>
-					_END
+_END
 				?>
 			</h3>
   		</div>
