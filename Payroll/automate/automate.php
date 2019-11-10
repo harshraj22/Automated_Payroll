@@ -65,6 +65,17 @@
     else
         echo "Successfully Created HR table.<br>";
 
+    function removeDirectory($path) {
+        $files = glob($path . '/*');
+        foreach ($files as $file) {
+            is_dir($file) ? removeDirectory($file) : unlink($file);
+        }
+        rmdir($path);
+        return;
+    }
+
+    removeDirectory('../user_images');
+
     mysqli_close($conn);
 
 ?>
