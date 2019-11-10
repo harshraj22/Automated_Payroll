@@ -11,7 +11,20 @@
 		header('url=../index.php');
 		exit();
 	}
-					
+
+    if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] == false || !isset($_SESSION['isHr']) || $_SESSION['isHr'] == false){
+        echo "Error 404. The page you requested doesn't exists. ".isset($_SESSION['loggedIn'])." and {$_SESSION['loggedIn']}";
+        header("Refresh:02; url=../index.php");
+        exit();
+    }
+
+	$query_for_rate = "SELECT rate FROM hr_table WHERE username='{$_SESSION['user']}'";
+	$result_for_rate = mysqli_query($conn, $query_for_rate);
+
+	$cur_row = mysqli_fetch_row($result_for_rate);
+	// print_r($cur_row);
+	$salary_per_hour = (int)($cur_row[0]);
+	// echo $query_for_rate.$salary_per_hour." is so//.<br>";					
 					
 	$today = date('Y-m');
 	$today = (string)$today.'%';
