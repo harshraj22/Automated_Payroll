@@ -55,7 +55,8 @@
     echo "</div>";
 
     header('Refresh:10; url=userProfileFrontend.php');
-    mysqli_connect($conn);
+    mysqli_close($conn);
+
     // echo "asldfja asdlf";
     exit();
 ?>

@@ -36,6 +36,7 @@
         file_put_contents($fileName, $fileData);
     }
 
-    mysqli_connect($conn);
+    mysqli_close($conn);
+
     
 ?>

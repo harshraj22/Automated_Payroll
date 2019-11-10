@@ -5,6 +5,7 @@
     $conn = mysqli_connect($hostname, $username, $password, $database);
     if(!$conn){
         die("Error connecting to server. Please try after sometime.".mysqli_connect_error());
+        mysqli_close($conn);
         header('url=../index.php');
         exit();
     }
@@ -18,6 +19,7 @@
     else
         echo "Successfully Updated";
 
+    mysqli_close($conn);
     header("Refresh:01; url='adminProfile.php'");
 
 ?>

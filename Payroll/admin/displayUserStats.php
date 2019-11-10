@@ -5,12 +5,15 @@
 
     if(!isset($_SESSION['queriedUser']) || (!isset($_SESSION['isAdmin']) && !isset($_SESSION['isHr'])) || ($_SESSION['isAdmin'] == false &&  $_SESSION['isHr'] == false)){
         die("Error 404 <br> The page you requested doesn't exist.");
+
         header('Refresh:01; url=../index.php');
         exit();
     }
     $conn = mysqli_connect($hostname, $username, $password, $database);
     if(!$conn){
         die("Error connecting to server. Please try after sometime.".mysqli_connect_error());
+        mysqli_close($conn);
+
         header('url=../index.php');
         exit();
     }

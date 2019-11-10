@@ -70,7 +70,7 @@ _END;
             header('Refresh:01; url=adminProfile.php');
         }
 
-        mysqli_connect($conn);
+        mysqli_close($conn);
     }
 
 

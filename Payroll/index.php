@@ -138,5 +138,7 @@ _END;
 				exit();
 			}
 		}
+        mysqli_close($conn);
+
 	}
 ?>

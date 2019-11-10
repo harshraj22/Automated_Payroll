@@ -14,6 +14,8 @@
         exit();
     }
 
+    mysqli_close($conn);
+
 ?>
 
 <!DOCTYPE html>

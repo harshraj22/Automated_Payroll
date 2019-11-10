@@ -18,7 +18,8 @@
     }
     $number_of_rows = mysqli_num_rows($result);
 
-    mysqli_connect($conn);
+    mysqli_close($conn);
+
 ?>
 
     <!DOCTYPE html>

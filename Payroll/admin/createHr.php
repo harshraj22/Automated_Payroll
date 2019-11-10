@@ -39,7 +39,7 @@
 			echo "Created Hr {$newUserName}...";
 		}
 
-		mysqli_connect($conn);
+        mysqli_close($conn);
 
 		header("Refresh:01; url='adminProfile.php'");
 	}
