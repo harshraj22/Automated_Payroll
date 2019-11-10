@@ -7,8 +7,6 @@
 	$pref_longitude = 74.92356459999999;
 	$pref_latitude = 15.5251559;
 
-	$salary_per_hour = 10;
-
 	$conn = mysqli_connect($hostname, $username, $password, $database);
 	if(!$conn){
 		die("Error connecting to server. Please try after sometime.".mysqli_connect_error());
@@ -16,29 +14,39 @@
 		exit();
 	}
 
-    if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] == false || !isset($_SESSION['isHr']) || $_SESSION['isHr'] == false){
+    if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] == false){
         echo "Error 404. The page you requested doesn't exists. ".isset($_SESSION['loggedIn'])." and {$_SESSION['loggedIn']}";
         header("Refresh:02; url=../index.php");
         exit();
-    }
+	}
+	
+	$salary_per_hour = 10;
 
-	$query_for_rate = "SELECT rate FROM hr_table WHERE username='{$_SESSION['user']}'";
-	$result_for_rate = mysqli_query($conn, $query_for_rate);
-
-	$cur_row = mysqli_fetch_row($result_for_rate);
-	$salary_per_hour = (int)($cur_row[0]);
+	if(!isset($_SESSION['isHr']) || $_SESSION['isHr'] == true){
+		$query_for_rate = "SELECT rate FROM hr_table WHERE username='{$_SESSION['user']}'";
+		$result_for_rate = mysqli_query($conn, $query_for_rate);
+		
+		$cur_row = mysqli_fetch_row($result_for_rate);
+		$salary_per_hour = (int)($cur_row[0]);
+	}
+	else 
+		$salary_per_hour = 10;
 					
+	// echo $salary_per_hour.'<br>';
 	$today = date('Y-m');
 	$today = (string)$today.'%';
+	if(isset($_GET['date']))
+		$today = $_GET['date'];
 	
 	$userQuery = "SELECT COUNT(*) FROM {$_POST['user']} WHERE date_ LIKE '{$today}' AND latitude!='NA' AND ABS(latitude-{$pref_latitude}) < 0.1 AND ABS(longitude - {$pref_longitude}) < 0.1";
 	$userResult = mysqli_query($conn, $userQuery);
+	// echo $userQuery." ".$salary_per_hour.'<br>';
 
 	if(!$userResult)
 		die("Error fetching user deatils<br>".mysqli_error($conn));
 	$row = mysqli_fetch_row($userResult);
 
-	mysqli_connect($conn);
+	mysqli_close($conn);
 
 ?>
 
