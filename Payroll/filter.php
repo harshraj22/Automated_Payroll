@@ -86,9 +86,12 @@
                 $cur_emp_details = mysqli_fetch_row($show_all_emp_result);
                 $present_or_not = "SELECT * FROM {$cur_emp_details[0]} WHERE date_='{$_POST['queriedDate']}'";
                 $result = mysqli_query($conn, $present_or_not);
-                $number = mysqli_num_rows($result);
+                if($result)
+                    $number = mysqli_num_rows($result);
                 // $_SESSION['queriedUser'] = $cur_emp_details;
-                if($number > 0)
+                if($number_of_emp==0)
+                    echo "<h6> No employee exists with name {$_POST['queriedUser']}";
+                else if($number > 0)
                     echo "<a class='list-group-item list-group-item-action' href='admin/displayUserStats.php?user={$cur_emp_details[0]}' >{$cur_emp_details[0]}</a><br> ";
                 else echo "<h6> {$cur_emp_details[0]} was not present that day </h6><br>";
 
