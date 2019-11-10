@@ -35,7 +35,7 @@
         <input type="hidden" name="hidden" id="hidden">
         <input type="text" name="type" value="logout" style="display: none;">
     </form>
-    <form type="post" enctype="multipart/form-data" action="../index.php" name="form2">
+    <form type="post" enctype="multipart/form-data" action="logout.php" name="form2">
     </form>
     <script type="text/javascript" src="imageCapture.js"></script>
 </body>
