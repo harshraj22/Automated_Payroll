@@ -55,30 +55,30 @@
 					<div class="col-md-3">
 						<div class="thecard">
 							<div class="thecard__side thecard__side--front">
-								<img class="img-fluid" src="https://img.huffingtonpost.com/asset/5bb7247b240000310056f31c.jpeg?ops=scalefit_720_noupscale"></img>
+								<img class="img-fluid" src="images/front3.jpg"></img>
 							</div>
 							<div class="thecard__side thecard__side--back">
-								<img class="img-fluid" src="images/image1.jpg">
+								<img class="img-fluid" src="images/Picture3.jpg">
 							</div>
 						</div>
 					</div>
 					<div class="col-md-3">
 						<div class="thecard">
 							<div class="thecard__side thecard__side--front">
-								<img class="img-fluid" src="https://img.huffingtonpost.com/asset/5bb7247b240000310056f31c.jpeg?ops=scalefit_720_noupscale"></img>
+								<img class="img-fluid" src="images/front.jpg"></img>
 							</div>
 							<div class="thecard__side thecard__side--back">
-								<img class="img-fluid" src="images/image1.jpg">
+								<img class="img-fluid" src="images/Picture4.jpg">
 							</div>
 						</div>
 					</div>
 					<div class="col-md-3">
 						<div class="thecard">
 							<div class="thecard__side thecard__side--front">
-								<img class="img-fluid" src="https://img.huffingtonpost.com/asset/5bb7247b240000310056f31c.jpeg?ops=scalefit_720_noupscale"></img>
+								<img class="img-fluid" src="images/front2.jpg"></img>
 							</div>
 							<div class="thecard__side thecard__side--back">
-								<img class="img-fluid" src="images/image1.jpg">
+								<img class="img-fluid" src="images/Picture5.jpg">
 							</div>
 						</div>
 					</div>
