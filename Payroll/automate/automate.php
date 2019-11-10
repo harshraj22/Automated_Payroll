@@ -56,4 +56,15 @@
     else    
         echo "Successfully Created admin.<br>";
 
+    //--------------------------------HR Table Creation----------------------------------------------------
+    $create_hr_table = "CREATE TABLE hr_table (username VARCHAR(30) NOT NULL PRIMARY KEY, rate INT (3) DEFAULT 10)";
+    $create_hr_table_result = mysqli_query($conn, $create_hr_table);
+
+    if(!$create_hr_table_result)
+        die("Error creating hr table.<br>");
+    else
+        echo "Successfully Created HR table.<br>";
+
+    mysqli_close($conn);
+
 ?>
