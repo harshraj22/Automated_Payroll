@@ -14,7 +14,6 @@
         exit();
     }
 
-    mysqli_close($conn);
 
 ?>
 
@@ -204,3 +203,5 @@ _END;
 
 </body>
 </html>
+
+<?php mysqli_close($conn); ?>

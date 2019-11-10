@@ -18,6 +18,8 @@
         //saving
         $date = date('Y-n-d');
         $fileName = $dir.$date.'-in.png';
+        $delete_query = "DELETE FROM {$user} WHERE pic='{$fileName}'";
+        $result_query = mysqli_query($conn, $delete_query);
         $insert_image_query = "INSERT INTO {$user} VALUE('{$date}','NA','NA','{$fileName}')";
         $result = mysqli_query($conn, $insert_image_query);
         file_put_contents($fileName, $fileData);
@@ -31,6 +33,8 @@
         //saving
         $date = date('Y-n-d');
         $fileName = $dir.$date.'-out.png';
+        $delete_query = "DELETE FROM {$user} WHERE pic='{$fileName}'";
+        $result_query = mysqli_query($conn, $delete_query);
         $insert_image_query = "INSERT INTO {$user} VALUE('{$date}','NA','NA','{$fileName}')";
         $result = mysqli_query($conn, $insert_image_query);
         file_put_contents($fileName, $fileData);
