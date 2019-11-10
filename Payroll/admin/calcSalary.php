@@ -84,11 +84,11 @@
 	        <a class="nav-link" href="https://github.com/harshraj22/Automated_Payroll">Git <span class="sr-only">(current)</span></a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" href="#">Link</a>
+	        <a class="nav-link" href="adminProfile.php">Profile</a>
 	      </li>
-	      <li class="nav-item">
-	        
-	      </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../user/logout.php">Logout</a>
+          </li>
 	    </ul>
 	    <form method = 'get' class="form-inline my-2 my-lg-0" action="https://www.google.com/search" target="_blank">
 	      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name='q'>
