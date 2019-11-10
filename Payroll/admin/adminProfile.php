@@ -1,6 +1,12 @@
 <?php
     session_start();
     require_once "../authenticate/login.php";
+    $conn = mysqli_connect($hostname, $username, $password, $database);
+    if(!$conn){
+        die("Error connecting to server. Please try after sometime.".mysqli_connect_error());
+        header('url=../index.php');
+        exit();
+    }
 
     if($_SESSION['loggedIn'] == false || ($_SESSION['isAdmin'] == false && $_SESSION['isHr'] == false)){
         echo "Error 404. <br> The page you requested does not exists.";
@@ -14,16 +20,14 @@
 <html>
 <head>
     <title>Admin Homepage</title>
+    <link rel="stylesheet" href="../index.css">
 </head>
 <body>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
@@ -83,6 +87,26 @@ _END;
                                     <button type="submit" class="btn btn-primary" style="margin: 5px; margin-left:30px">Add HR</button>
                                 </div>
                             </form>
+_END;
+                    }
+                    if($_SESSION['isHr'] == true && $_SESSION['loggedIn'] == true){
+                        $rate = "SELECT rate FROM hr_table WHERE username='{$_SESSION['user']}'";
+                        $rate = mysqli_query($conn, $rate);
+                        $rate = mysqli_fetch_row($rate)[0];
+                        echo <<< _END
+                            <div class="container-fluid">
+                                <img class="img-fluid" id="userImage" src='../images/richie.jpg' ></img>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <form method='POST' action='changeRate.php' enctype='multipart/form-data'>
+                                            <div class="form-group row-md-2">    
+                                                ChangeSalaryRate: <input type='text' name='rate' placeholder='\${$rate} (per 20 sec)' id='rate' required>
+                                            </div>
+                                                <input type='submit' class="btn btn-primary">
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
 _END;
                     }
                 ?>
@@ -152,12 +176,16 @@ _END;
     <footer>
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
-                <p><u><a href="https://www.nationaltransaction.com/">National Transaction Corporation</a></u> is a Registered MSP/ISO of Elavon, Inc. Georgia [a wholly owned subsidiary of U.S. Bancorp, Minneapolis, MN]</p>
-                <p class="h6">&copy All right Reversed.<a class="text-green ml-2" href="https://www.sunlimetech.com" target="_blank">Sunlimetech</a></p>
+                <p><u><a href="https://github.com/harshraj22/Automated_Payroll">Automated Payroll</a></u> is a Registered Website of IIT Dh, Inc. India 
+                <p class="h6">&copy All right Reversed.<a class="text-green ml-2" href="https://github.com/harshraj22/Automated_Payroll" target="_blank">Team 5</a></p>
             </div>
             </hr>
-        </div>  
+        </div>	
     </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script>
         $('.counter-count').each(function () {
             $(this).prop('Counter',0).animate({
