@@ -141,7 +141,7 @@ _END;
                     for($i=0;$i<$number_of_emp;$i+=1){
                         $cur_emp_details = mysqli_fetch_row($show_all_emp_result);
                         // $_SESSION['queriedUser'] = $cur_emp_details;
-                        echo "<a class='list-group-item list-group-item-action' href='displayUserStats.php?user={$cur_emp_details[0]}' >{$cur_emp_details[0]}</a><br> ";
+                        echo "<a class='list-group-item list-group-item-action border-primary' href='displayUserStats.php?user={$cur_emp_details[0]}' >{$cur_emp_details[0]}</a><br> ";
                     }
 
                     echo "</div>";

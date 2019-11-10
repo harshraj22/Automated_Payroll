@@ -52,7 +52,7 @@
             </ul>
             <form class="form-inline my-2 my-lg-0" action="filter.php">
                 <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"> -->
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Filter</button>
             </form>
         </div>
     </nav>
@@ -103,7 +103,7 @@ _END;
                     $number = mysqli_num_rows($result);
                 // $_SESSION['queriedUser'] = $cur_emp_details;
                 if($number_of_emp==0)
-                    echo "<h6> No employee exists with name {$_POST['queriedUser']}";
+                    echo "<h6 style='text-align: center;'> No employee exists with name {$_POST['queriedUser']}";
                 else if($number > 0)
                     echo "<a class='list-group-item list-group-item-action border-primary' href='admin/displayUserStats.php?user={$cur_emp_details[0]}&date={$_POST['queriedDate']}' >{$cur_emp_details[0]}</a><br> ";
                 else echo "<h6> {$cur_emp_details[0]} was not present that day </h6><br>";
@@ -126,7 +126,7 @@ _END;
                     $result_emp = mysqli_query($conn, $present_emp);
                     $present_or_not = mysqli_num_rows($result_emp);
                     if($present_or_not > 0){
-                        echo "<a class='list-group-item list-group-item-action' href='admin/displayUserStats.php?user={$curr_emp[0]}&date={$_POST['queriedDate']}' >{$curr_emp[0]}</a><br> ";
+                        echo "<a class='list-group-item list-group-item-action border-primary' href='admin/displayUserStats.php?user={$curr_emp[0]}&date={$_POST['queriedDate']}' >{$curr_emp[0]}</a><br> ";
                     }
                 }
 
@@ -145,7 +145,7 @@ _END;
                 for($i=0;$i<$number_of_emp;$i+=1){
                     $cur_emp_details = mysqli_fetch_row($show_all_emp_result);
                     // $_SESSION['queriedUser'] = $cur_emp_details;
-                    echo "<a class='list-group-item list-group-item-action' href='admin/displayUserStats.php?user={$cur_emp_details[0]}' >{$cur_emp_details[0]}</a><br> ";
+                    echo "<a class='list-group-item list-group-item-action border-primary' href='admin/displayUserStats.php?user={$cur_emp_details[0]}' >{$cur_emp_details[0]}</a><br> ";
                 }
 
                 echo "</div></div></div>";
