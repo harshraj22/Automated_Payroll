@@ -89,7 +89,7 @@
 						</blockquote>
 					  </div>
 					  <form action="createHr.php" method="POST" class="signupForm" name="signupform">
-						<h2>Enter New User Details</h2>
+						<h2>Enter New HR Details</h2>
 						<ul class="noBullet">
 						  <li>
 							<label for="username"></label>
