@@ -41,7 +41,7 @@
 
 		mysqli_connect($conn);
 
-		// echo "Creating table<br>";
+		header("Refresh:01; url='adminProfile.php'");
 	}
 	else{
 		echo <<< _END
