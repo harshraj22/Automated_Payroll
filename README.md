@@ -4,7 +4,10 @@
 The purpose of an automated payroll application is to keep track of the attendance as well as payroll (salary) of the employees in an organization. This application should track whether the employee is within the office premises by obtaining the GPS location of the employee after every 10 seconds. This application helps the employer to prevent proxy attendace of the employee. Moreover, the HR of the company can easily calculate the payroll of the employee.
 
 ### Team :
-[Harsh Raj](https://github.com/harshraj22)  &nbsp;  [Abhishek Raj](https://github.com/abhiisshheekk)  &nbsp;  [Utkarsh Prakash](https://github.com/Utkarsh-1)
+
+|	|	|	|
+|---|---|---|
+|[Harsh Raj](https://github.com/harshraj22)  &nbsp;|  [Abhishek Raj](https://github.com/abhiisshheekk)  &nbsp;|  [Utkarsh Prakash](https://github.com/Utkarsh-1)|
 
 
 ### Screenshots :
