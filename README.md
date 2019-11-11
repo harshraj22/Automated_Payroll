@@ -82,7 +82,7 @@ The purpose of an automated payroll application is to keep track of the attendan
 
 ## Installation Guide :
 
- * Install [xammp/lamp]() on your machine
+ * Install [xammp/lamp](https://www.ntu.edu.sg/home/ehchua/programming/webprogramming/AMP_Setup.html) on your machine
 
  * Create ```login.php``` in Payroll directory. 
 
