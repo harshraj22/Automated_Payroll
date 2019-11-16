@@ -5,7 +5,7 @@
     $conn = mysqli_connect($hostname, $username, $password, $database);
     if(!$conn){
         die("Error connecting to server. Please try after sometime.".mysqli_connect_error());
-        mysqli_close($conn);
+        // mysqli_close($conn);
         header('url=../index.php');
         exit();
     }
@@ -17,9 +17,10 @@
     if(!$result_rate_query)
         die("Error updating salary rate".mysqli_connect_error());
     else
-        echo "Successfully Updated";
+        echo "<script>alert('Succesfully Updated')</script>";
+        // echo "Successfully Updated";
 
-    mysqli_close($conn);
+    // mysqli_close($conn);
     header("Refresh:01; url='adminProfile.php'");
 
 ?>

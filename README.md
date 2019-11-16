@@ -7,7 +7,7 @@ The purpose of an automated payroll application is to keep track of the attendan
 
 |	|	|	|
 |---|---|---|
-|[Harsh Raj](https://github.com/harshraj22)  &nbsp;|  [Abhishek Raj](https://github.com/abhiisshheekk)  &nbsp;|  [Utkarsh Prakash](https://github.com/Utkarsh-1)|
+|[Harsh Raj](https://github.com/harshraj22)  &nbsp;|  [Abhishek Raj](https://github.com/abhiisshheekk)  &nbsp;|  [Utkarsh Prakash](https://github.com/Utkarshp1)|
 
 
 ### Screenshots :

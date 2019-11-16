@@ -47,15 +47,16 @@
             $user_update_result = mysqli_query($conn, $user_update_query);
 
             if(!$user_update_result)
-                echo "Error updating the user details.";
+                echo "Error updating the user details.".mysqli_error($conn);
             else 
-                echo "Successfully updated the user details.";
+                echo "<script>alert('Succcessfully updated the user details.)</script>";
+                // echo "Successfully updated the user details.";
         }
 
     echo "</div>";
 
     header('Refresh:10; url=userProfileFrontend.php');
-    mysqli_close($conn);
+    // mysqli_close($conn);
 
     // echo "asldfja asdlf";
     exit();
