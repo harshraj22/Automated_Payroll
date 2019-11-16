@@ -9,7 +9,8 @@
     }
 
     if($_SESSION['loggedIn'] == false || ($_SESSION['isAdmin'] == false && $_SESSION['isHr'] == false)){
-        echo "Error 404. <br> The page you requested does not exists.";
+        // echo "Error 404. <br> The page you requested does not exists.";
+        echo "<script>alert('The page you requested does not exists.')</script>";
         header('Refresh:01; url=../index.php');
         exit();
     }
@@ -210,5 +211,3 @@ _END;
 
 </body>
 </html>
-
-<?php mysqli_close($conn); ?>

@@ -62,15 +62,17 @@ _END;
         $result = mysqli_query($conn, $query);
 
         if (!$result) {
-            echo "There was some error while updating password. Try again later";
+            // echo "There was some error while updating password. Try again later";
+            echo "<script>alert('There was some error while updating password. Try again later')</script>";
             header('Refresh:01; url=adminProfile.php');
         }
         else {
-            echo "Successfully updated password."; 
+            // echo "Successfully updated password."; 
+            echo "<script>alert('Successfully updated password')</script>";
             header('Refresh:01; url=adminProfile.php');
         }
 
-        mysqli_close($conn);
+        // mysqli_close($conn);
     }
 
 

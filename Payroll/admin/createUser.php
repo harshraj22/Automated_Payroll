@@ -5,7 +5,7 @@
 	if(isset($_POST['username']) && isset($_POST['pass'])){
 		// create user table
 
-		echo "Creating user table<br>";
+		// echo "Creating user table<br>";
 
 		$conn = mysqli_connect($hostname, $username, $password, $database);
 		if(!$conn){
@@ -39,12 +39,13 @@
 			if(!file_exists("../user_images/{$newUserName}")) {
 				mkdir("../user_images/{$newUserName}",0777,true);
 			}
-			echo "Created user {$newUserName}...";
+			// echo "Created user {$newUserName}...";
+			echo "<script>alert('Created User {$newUserName}.')</script>";
 	        header('Refresh:01; url=adminProfile.php');
 	        exit();
 		}
 
-        mysqli_close($conn);
+        // mysqli_close($conn);
 
 	}
 	else{

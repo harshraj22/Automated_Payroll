@@ -18,7 +18,7 @@
     }
     $number_of_rows = mysqli_num_rows($result);
 
-    mysqli_close($conn);
+    // mysqli_close($conn);
 
 ?>
 

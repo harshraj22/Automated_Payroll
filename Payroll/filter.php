@@ -5,7 +5,8 @@
         // do nothing
     }
     else{
-        echo "<h2> You need to login First </h2>.";
+        // echo "<h2> You need to login First </h2>.";
+        echo "<script>alert('You need to login First.')</script>";
         header('Refresh:01; url=index.php');
     }
 ?>
@@ -151,7 +152,7 @@ _END;
                 echo "</div></div></div>";
             }
         }
-        mysqli_close($conn);
+        // mysqli_close($conn);
 
     ?>
 

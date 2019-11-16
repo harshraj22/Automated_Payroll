@@ -15,8 +15,9 @@
 	}
 
     if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] == false){
-        echo "Error 404. The page you requested doesn't exists. ".isset($_SESSION['loggedIn'])." and {$_SESSION['loggedIn']}";
-        header("Refresh:02; url=../index.php");
+        // echo "Error 404. The page you requested doesn't exists. ".isset($_SESSION['loggedIn'])." and {$_SESSION['loggedIn']}";
+		echo "<script>alert('The page you requested does not exists.')</script>";
+		header("Refresh:02; url=../index.php");
         exit();
 	}
 	
@@ -52,7 +53,7 @@
 		die("Error fetching user deatils<br>".mysqli_error($conn));
 	$row = mysqli_fetch_row($userResult);
 
-	mysqli_close($conn);
+	// mysqli_close($conn);
 
 ?>
 

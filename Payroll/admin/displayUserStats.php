@@ -12,7 +12,7 @@
     $conn = mysqli_connect($hostname, $username, $password, $database);
     if(!$conn){
         die("Error connecting to server. Please try after sometime.".mysqli_connect_error());
-        mysqli_close($conn);
+        // mysqli_close($conn);
 
         header('url=../index.php');
         exit();
@@ -33,7 +33,7 @@
         die("Error fetching user deatils<br>".mysqli_error($conn));
     $number_of_rows = mysqli_num_rows($userResult);
 
-    mysqli_close($conn);
+    // mysqli_close($conn);
 
 ?>
 

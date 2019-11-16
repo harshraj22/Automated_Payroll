@@ -113,20 +113,22 @@ _END;
 		if(!$user_result){
 			die("Error matching credentials. Please try later.<br>".mysqli_error($conn));
 			header('Refresh:01; url="index.php"');
-	        mysqli_close($conn);
+	        // mysqli_close($conn);
 
 		}
 		else if(mysqli_num_rows($user_result) == 0){
-			echo "Username and password doesn't match.<br>";
+			// echo "Username and password doesn't match.<br>";
+			echo '<script>alert("Username and password doesn\'t match")</script>';
 			header('Refresh:01; url="index.php"');
-	        mysqli_close($conn);
+	        // mysqli_close($conn);
 		}
 		else{
 			$_SESSION['user'] = $currentUserName;
 			$_SESSION['loggedIn'] = true;
 			$_SESSION['isAdmin'] = false;
 			$_SESSION['isHr'] = false;
-			echo "Successfully Logged In. Redirecting to Profile.<br>";
+			// echo "Successfully Logged In. Redirecting to Profile.<br>";
+			echo '<script>alert("Succesfully Logged In. Click ok to go to profile page.")</script>';
 			$data = mysqli_fetch_row($user_result);
 			$isAdmin = $data[2];
 			// print_r($data);
@@ -149,7 +151,7 @@ _END;
 				exit();
 			}
 		}
-        mysqli_close($conn);
+        // mysqli_close($conn);
 
 	}
 ?>
